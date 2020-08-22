@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'httpclient'
+require 'json'
 
 module TalkApi
   # API request class
@@ -18,7 +19,8 @@ module TalkApi
       rescue StandardError => e
         raise HTTPError, e.message
       end
-      Response.new(response.body)
+      json = JSON.parse(response.body, symbolize_names: true)
+      Response.new(json[:status], json[:message], json[:results])
     end
   end
 end
