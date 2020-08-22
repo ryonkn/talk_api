@@ -1,6 +1,7 @@
-require "talk_api/version"
+# frozen_string_literal: true
 
-module TalkApi
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'talk_api/version'
+require 'talk_api/client'
+require 'talk_api/request'
+require 'talk_api/response'
+require 'talk_api/result'
