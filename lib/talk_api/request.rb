@@ -5,10 +5,9 @@ require 'httpclient'
 module TalkApi
   # API request class
   class Request
-    ENDPOINT_URL = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'.freeze
-    USER_AGENT = "#{self} #{VERSION}".freeze
+    ENDPOINT_URL = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
     HEADERS = [
-      ['User-Agent', USER_AGENT]
+      ['User-Agent', "#{self}/#{VERSION}"]
     ].freeze
 
     def call(api_key, message)
