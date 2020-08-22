@@ -12,8 +12,12 @@ module TalkApi
 
     def call(api_key, message)
       query = message.byteslice(0, 2048).scrub('')
-      client = HTTPClient.new
-      response = client.post(ENDPOINT_URL, { apikey: api_key, query: query }, header: HEADERS)
+      begin
+        client = HTTPClient.new
+        response = client.post(ENDPOINT_URL, { apikey: api_key, query: query }, header: HEADERS)
+      rescue StandardError => e
+        raise HTTPError, e.message
+      end
       Response.new(response.body)
     end
   end
