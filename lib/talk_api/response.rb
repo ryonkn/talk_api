@@ -5,6 +5,8 @@ module TalkApi
   class Response
     attr_reader :status, :message, :results
 
+    Result = Struct.new(:perplexity, :reply)
+
     def initialize(status, message, results = [])
       @status = status
       @message = message
