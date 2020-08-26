@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk
+    body:
+      encoding: UTF-8
+      string: apikey=invalid_key&query=test
+    headers:
+      User-Agent:
+      - TalkApi::Client/0.1.3
+      Accept:
+      - "*/*"
+      Date:
+      - Tue, 25 Aug 2020 00:44:36 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Max-Age:
+      - '864000'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Cloud-Trace-Context:
+      - f43d8aeb6e8d1bf88382d804e542f91b
+      Date:
+      - Tue, 25 Aug 2020 00:44:38 GMT
+      Server:
+      - Google Frontend
+      Content-Length:
+      - '47'
+    body:
+      encoding: UTF-8
+      string: '{"status": 1001, "message": "apikey not found"}'
+  recorded_at: Tue, 25 Aug 2020 00:44:36 GMT
+recorded_with: VCR 6.0.0
