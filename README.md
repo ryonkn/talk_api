@@ -1,8 +1,8 @@
 # TalkApi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/talk_api`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/talk_api.svg)](https://badge.fury.io/rb/talk_api)
 
-TODO: Delete this and the text above, and describe your gem
+Client library for (talk API)[http://a3rt.recruit-tech.co.jp/product/talkAPI/]
 
 ## Installation
 
@@ -22,13 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First, (Register API KEY for Talk API)[http://a3rt.recruit-tech.co.jp/product/talkAPI/registered/]
 
-## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+require 'talk_api'
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### Run Talk API
+
+```ruby
+client = TalkApi::Client.new(api_key: '<API KEY>') # TalkApi::Client instance
+response = client.smalltalk('<messages>')          # Send text to API and return a response
+response.success?                                  # true or false
+response.first_message                             # Return a text message
+```
+
+### Example
+```ruby
+client = TalkApi::Client.new(api_key: 'valid api key')
+response = client.smalltalk('あのイーハトーヴォのすきとほった風、夏でも底に冷たさをもつ青いそら')
+response.first_message
+=> "それはいいですね"
+```
+
 
 ## Contributing
 
